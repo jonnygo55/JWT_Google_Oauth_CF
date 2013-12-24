@@ -29,7 +29,7 @@ component displayname="GoogleOauth2" output="false"
 		}
 		
 		//create the JWT Packet
-		local.JWTPacket = getJWTPacket();
+		local.JWTPacket = assembleJWTPacket();
 
 		//send it to Google
 		local.result = sendPacket(JWT=local.JWTPacket);;
@@ -62,7 +62,7 @@ component displayname="GoogleOauth2" output="false"
 
 	}
 
-	private string function getJWTPacket() {
+	private string function assembleJWTPacket() {
 		//first create the header hard code the base64 value since there is only one
 		// same as {"alg":"RS256","typ":"JWT"} in base64
 		 local.jwtHeader = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9';
